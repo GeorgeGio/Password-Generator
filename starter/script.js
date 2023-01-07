@@ -87,9 +87,17 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
-
+// let userPrompts = "";
 // Function to prompt user for password options
 function getPasswordOptions() {
+  userPromptsAmount = prompt("State how many characters you want! between 10-64 : ");
+  userPromptsLowercase = confirm("Do you want to include Lowercase?  ");
+  userPromptsUppercase = confirm("Do you want to include Uppercase?  ");
+  userPromptsNumeric = confirm("Do you want to include Numbers?  ");
+  userPromptsSpecial = confirm("Do you want to include Special Characters?  ");
+
+  return test1;
+
 
 }
 
@@ -100,14 +108,30 @@ function getRandom(arr) {
 
 // Function to generate password with user input
 function generatePassword() {
+  // let practiseP = "";
+  // let randomIndex = Math.floor(Math.random()*numericCharacters.length)
+
+  //   for (let i =0; i<10; i++){
+  //     practiseP += "k"
+  //   }
+  //   return randomIndex;
+  // getPasswordOptions();
+  
+  // let pass = userPrompts;
+  let pass = getPasswordOptions();
+  console.log(userPrompts);
+  // return getPasswordOptions.userPrompts;
+  return pass;
 
 }
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
+  // var password = getPasswordOptions();
   var password = generatePassword();
   var passwordText = document.querySelector('#password');
 
