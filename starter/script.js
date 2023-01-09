@@ -87,27 +87,46 @@ var upperCasedCharacters = [
   'Y',
   'Z'
 ];
+
 // let userPrompts = "";
+var selectionArray = [];
+var userPromptsAmount = 0;
+
 // Function to prompt user for password options
 function getPasswordOptions() {
   userPromptsAmount = prompt("State how many characters you want! between 10-64 : ");
   userPromptsLowercase = confirm("Do you want to include Lowercase?  ");
+  if (userPromptsLowercase) {
+   selectionArray = selectionArray.concat(lowerCasedCharacters);
+  }
   userPromptsUppercase = confirm("Do you want to include Uppercase?  ");
+  if (userPromptsUppercase) {
+    selectionArray = selectionArray.concat(upperCasedCharacters);
+  }
   userPromptsNumeric = confirm("Do you want to include Numbers?  ");
+  if (userPromptsNumeric) {
+    selectionArray = selectionArray.concat(numericCharacters);
+  }
   userPromptsSpecial = confirm("Do you want to include Special Characters?  ");
-
-  return test1;
+  if (userPromptsSpecial) {
+    selectionArray = selectionArray.concat(specialCharacters);
+  }
+  console.log(selectionArray);
+  console.log(userPromptsAmount);
+  return selectionArray;
 
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-
+  
 }
 
 // Function to generate password with user input
 function generatePassword() {
+  let pass = getPasswordOptions();
+  let randomPassword = getRandom(pass);
   // let practiseP = "";
   // let randomIndex = Math.floor(Math.random()*numericCharacters.length)
 
@@ -116,15 +135,15 @@ function generatePassword() {
   //   }
   //   return randomIndex;
   // getPasswordOptions();
-  
+
   // let pass = userPrompts;
-  let pass = getPasswordOptions();
-  console.log(userPrompts);
+  // console.log(userPrompts);
   // return getPasswordOptions.userPrompts;
   return pass;
 
 }
 
+// console.log(selectionArray);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
