@@ -91,10 +91,14 @@ var upperCasedCharacters = [
 // let userPrompts = "";
 var selectionArray = [];
 var userPromptsAmount = 0;
+var randomIndex = "";
 
 // Function to prompt user for password options
 function getPasswordOptions() {
   userPromptsAmount = prompt("State how many characters you want! between 10-64 : ");
+  if(userPromptsAmount<=64 && userPromptsAmount>=10){
+    
+  }
   userPromptsLowercase = confirm("Do you want to include Lowercase?  ");
   if (userPromptsLowercase) {
    selectionArray = selectionArray.concat(lowerCasedCharacters);
@@ -120,7 +124,10 @@ function getPasswordOptions() {
 
 // Function for getting a random element from an array
 function getRandom(arr) {
-  
+  for (let i = 0; i < userPromptsAmount; i++){
+    randomIndex += arr[Math.floor(Math.random()*selectionArray.length)];
+    }
+    return randomIndex;
 }
 
 // Function to generate password with user input
@@ -139,7 +146,7 @@ function generatePassword() {
   // let pass = userPrompts;
   // console.log(userPrompts);
   // return getPasswordOptions.userPrompts;
-  return pass;
+  return randomPassword;
 
 }
 
