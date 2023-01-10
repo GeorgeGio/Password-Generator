@@ -96,8 +96,10 @@ var randomIndex = "";
 // Function to prompt user for password options
 function getPasswordOptions() {
   userPromptsAmount = prompt("State how many characters you want! between 10-64 : ");
-  if(userPromptsAmount<=64 && userPromptsAmount>=10){
-    
+  if(userPromptsAmount>64 || userPromptsAmount<10){
+
+    getPasswordOptions();
+    return
   }
   userPromptsLowercase = confirm("Do you want to include Lowercase?  ");
   if (userPromptsLowercase) {
@@ -117,35 +119,30 @@ function getPasswordOptions() {
   }
   console.log(selectionArray);
   console.log(userPromptsAmount);
+
+  if(!userPromptsLowercase && !userPromptsUppercase && !userPromptsNumeric && !userPromptsSpecial){
+    getPasswordOptions();
+    return
+  }
   return selectionArray;
 
 
 }
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+function getRandom() {
   for (let i = 0; i < userPromptsAmount; i++){
-    randomIndex += arr[Math.floor(Math.random()*selectionArray.length)];
+    randomIndex += selectionArray[Math.floor(Math.random()*selectionArray.length)];
     }
     return randomIndex;
 }
 
 // Function to generate password with user input
 function generatePassword() {
-  let pass = getPasswordOptions();
-  let randomPassword = getRandom(pass);
-  // let practiseP = "";
-  // let randomIndex = Math.floor(Math.random()*numericCharacters.length)
+  randomIndex = "";
+  getPasswordOptions();
+  let randomPassword = getRandom();
 
-  //   for (let i =0; i<10; i++){
-  //     practiseP += "k"
-  //   }
-  //   return randomIndex;
-  // getPasswordOptions();
-
-  // let pass = userPrompts;
-  // console.log(userPrompts);
-  // return getPasswordOptions.userPrompts;
   return randomPassword;
 
 }
