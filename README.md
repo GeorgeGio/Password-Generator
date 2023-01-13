@@ -26,7 +26,7 @@ Our app has to showcase our ability to create :
 ![Screenshot of Target solution](./assets/05-javascript-challenge-demo.png)
 
 ## Actual Representation of the App that generated a password   
-![Current Page of Finance page showing Console -solution](./images/georgegio.github.io_Console-Finances_.jpg)
+![Current Page of Finance page showing Console -solution](assets/georgegio.github.io_Password-Generator_.png)
 
 
 ## Installation
